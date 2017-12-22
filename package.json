@@ -1,0 +1,22 @@
+{
+  "name": "omeclone",
+  "version": "1.0.0",
+  "description": "Clone of omegle.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gdgsurat/omeclone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gdgsurat/omeclone/issues"
+  },
+  "homepage": "https://github.com/gdgsurat/omeclone#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
