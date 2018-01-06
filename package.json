@@ -8,15 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gdgsurat/omeclone.git"
+    "url": "git+https://github.com/wdlsvnit/omeclone.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gdgsurat/omeclone/issues"
+    "url": "https://github.com/wdlsvnit/omeclone/issues"
   },
-  "homepage": "https://github.com/gdgsurat/omeclone#readme",
+  "homepage": "https://github.com/wdlsvnit/omeclone#readme",
   "dependencies": {
     "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "babel-preset-latest": "^6.24.1"
   }
 }
