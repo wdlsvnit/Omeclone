@@ -1,9 +1,13 @@
+"use strict";
+
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8000;
 
+app.set('view engine', 'hbs');
+
 app.get('/', (req, res) => {
-  res.send("Kickoff to the project");
+  res.render('index');
 });
 
 app.listen(8000);
