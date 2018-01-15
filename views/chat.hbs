@@ -2,56 +2,57 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
-    <title>Chat: Omeclone</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
+  <title>Chat: Omeclone</title>
 </head>
 
 <body style="background-color:#B5CC18">
-    <div class="ui grid">
-        <div class="row">
-            <div class="one wide column"></div>
-            <div class="fourteen wide column">
-                <div class="ui raised segment header" style="text-align:center;">
-                    <i class="user icon"></i>
-                    Username
-                </div>
-                <div class="ui top attatched" style="text-align:center;color:white">
-                    08:56 am
-                </div>
-                <div class="ui vertical grid">
-                    <div class="sixteen column row"></div>
-                    <div class="one column row">
-                        <div class="right floated purple seven wide column">Hi</div>
-                    </div>
-                    <div class="one column row">
-                        <div class="left floated pink seven wide column">Hello!</div>
-                    </div>
-                    <div class="one column row">
-                        <div class="right floated purple seven wide column">What's up babe?</div>
-                    </div>
-                    <div class="one column row">
-                        <div class="left floated pink seven wide column">All good! You say?</div>
-                    </div>
-                </div>
-            </div>
+  <div class="ui grid">
+    <div class="row">
+      <div class="one wide column"></div>
+      <div class="fourteen wide column">
+        <div class="ui raised segment header" style="text-align:center;">
+          <i class="user icon"></i>
+          Username
         </div>
-        <div class="one wide column"></div>
-    </div>
-    <div class="ui raised segment sixteen column row" style="width:100%;position:fixed;bottom:0;">
-        <div class="ui action icon input" style="width:100%;">
-            <input type="text" placeholder="What are you sending...">
-            <i class="smiley icon"></i>
-            <button class="ui teal right labeled icon button">
-                <i class="send icon"></i>
-                Send
-            </button>
+        <div class="ui top attatched" style="text-align:center;color:white">
+          08:56 am
         </div>
+        <div class="ui vertical grid">
+          <div class="sixteen column row"></div>
+          <div class="one column row">
+            <div class="right floated purple seven wide column">Hi</div>
+          </div>
+          <div class="one column row">
+            <div class="left floated pink seven wide column">Hello!</div>
+          </div>
+          <div class="one column row">
+            <div class="right floated purple seven wide column">What's up babe?</div>
+          </div>
+          <div class="one column row">
+            <div class="left floated pink seven wide column">All good! You say?</div>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="one wide column"></div>
+  </div>
+  <div class="ui raised segment sixteen column row" style="width:100%;position:fixed;bottom:0;">
+    <div class="ui action icon input" style="width:100%;">
+      <input type="text" placeholder="What are you sending...">
+      <i class="smiley icon"></i>
+      <button class="ui teal right labeled icon button">
+        <i class="send icon"></i>
+        Send
+      </button>
+    </div>
+  </div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
-
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script> -->
+<script src = "js/socket.io.js"></script>
+<script src = "js/chat.js"></script>
 </html>
