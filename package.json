@@ -19,6 +19,7 @@
   "dependencies": {
     "express": "^4.16.2",
     "hbs": "^4.0.1",
+    "semantic-ui": "^2.2.13",
     "socket.io": "^2.0.4"
   },
   "devDependencies": {
