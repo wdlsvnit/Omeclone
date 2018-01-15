@@ -10,5 +10,5 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.listen(8000);
+app.listen(port);
 console.log(`Server is runnning at ${port}`);
