@@ -7,4 +7,14 @@
   <body>
     Home page containing a button to enter chat room.
   </body>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js">
+
+  </script>
+  <script defer="defer" type="text/javascript">
+    let socket = io.connect('http://localhost:3000');
+    // socket.on('news', function(data) {
+    //   console.log(data);
+    // });
+    // socket.emit('other', { sample: "data" });
+  </script>
 </html>
