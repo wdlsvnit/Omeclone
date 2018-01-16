@@ -12,3 +12,7 @@ npm version: 5.5.1
 To run:
 
 ```node index.js```
+
+Visit:
+
+http://omeclone.herokuapp.com 
