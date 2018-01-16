@@ -13,6 +13,6 @@ To run:
 
 ```node index.js```
 
-Visit:
+Deployment from master:
 
-http://omeclone.herokuapp.com 
+https://omeclone.herokuapp.com 
