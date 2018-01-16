@@ -24,6 +24,7 @@
     "socket.io": "^2.0.4"
   },
   "devDependencies": {
-    "babel-preset-latest": "^6.24.1"
+    "babel-preset-latest": "^6.24.1",
+    "standard": "^10.0.3"
   }
 }
