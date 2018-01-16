@@ -20,7 +20,6 @@
     "express": "^4.16.2",
     "gulp": "^3.9.1",
     "hbs": "^4.0.1",
-    "semantic-ui": "^2.2.13",
     "socket.io": "^2.0.4"
   },
   "devDependencies": {
