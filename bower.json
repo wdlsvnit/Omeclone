@@ -14,5 +14,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "socket.io-client": "^2.0.4",
+    "semantic": "^2.2.13"
+  }
 }
