@@ -1,0 +1,17 @@
+.chat-body{
+  background-color:#B5CC18;
+}
+.centered{
+  text-align: center;
+}
+.white-text{
+  color: white;
+}
+.full{
+  width: 100%;
+}
+.ui.bottom{
+  position: fixed;
+  bottom: 0;
+  margin: 0;
+}
