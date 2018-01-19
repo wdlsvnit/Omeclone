@@ -12,6 +12,7 @@ module.exports = (io, app) => {
     socket.emit('ack', { id: socket.id, msg: "User connected" });
     utils.makeUserObject(socket).then(data => {
       onlineUsers.push(data);
+      queue.push(data);
     });
   });
 

@@ -2,3 +2,4 @@
 
 global.onlineUsers = [];
 global.rooms = [];
+global.queue = [];
