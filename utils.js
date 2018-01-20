@@ -1,5 +1,6 @@
 "use strict";
 require('./globals.js');
+const uniqid = require('uniqid');
 
 function makeUserObject(socket) {
   return new Promise((resolve, reject) => {
@@ -12,11 +13,26 @@ function makeUserObject(socket) {
 }
 
 function makeRoom(queue) {
-  // Return a room object from here which we will add to our global rooms. The object format should be like:
-  return {
-    "roomID": 234234, // A random number which should be unique for every room. Figure out the logic. You can use any external npm module.
-    "users" : [] // This will be an array containing the first objefct from the queue above and a object at random index in queue apart from first one.
-  }
+  return new Promise((resolve, reject) => {
+    if(queue.length > 1){
+      let id = uniqid();
+      let random = Math.floor(Math.random() * (queue.length - 1)) + 1; //get random index.
+      let sUser = queue.splice(random,1)[0];
+      let fUser = queue.splice(0,1)[0];
+      let room = {
+        "roomID" : id,
+        "users" : [fUser,sUser]
+      }
+      let index = onlineUsers.indexOf(fUser);
+      onlineUsers[index].inRoom = true;
+      index = onlineUsers.indexOf(sUser);
+      onlineUsers[index].inRoom = true;
+      resolve(room);
+    }
+    else{
+      console.log("alone");
+    }
+  });
 }
 
 module.exports = {
