@@ -10,9 +10,15 @@ module.exports = (io, app) => {
   io.on('connection', (socket) => {
     // Make a user object and add it to the onlineUsers list and rooms too(maybe we can add to room once we have the partner.)
     socket.emit('ack', { id: socket.id, msg: "User connected" });
-    utils.makeUserObject(socket).then(data => {
-      onlineUsers.push(data);
-      queue.push(data);
+
+    onlineUsers.push(socket);
+    socket.on('privateRoom', (user) => {
+      socket.join(user.room);
+      socket.emit('private ack', { "message": "Added to privateRoom" });
+    });
+
+    socket.on('sendMessage', (data) => {
+      io.sockets.in(data.room).emit('newMessage', { "message": data.message });
     });
   });
 
