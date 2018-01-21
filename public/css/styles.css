@@ -1,5 +1,5 @@
 .chat-body{
-  background-color:#B5CC18;
+  background-color:#F7EAC8;
 }
 .centered{
   text-align: center;
@@ -15,3 +15,7 @@
   bottom: 0;
   margin: 0;
 }
+.seven{
+  border-radius: 25px;
+}
+
