@@ -13,9 +13,29 @@
 .ui.bottom{
   position: fixed;
   bottom: 0;
-  margin: 0;
+  margin: 0px;
+  border:0px;
 }
 
 #endbtn {
-	margin-right: 8px;
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 600px){
+  .txt{
+    display: none;
+  }
+  #sendbtn,#endbtn{
+    padding: 18px!important;
+  }
+  .ui.grid{
+    margin: 0px;
+  }
+  .outer{
+    padding-top: 0px!important;
+  }
+  .fourteen,.one{
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+  }
 }
