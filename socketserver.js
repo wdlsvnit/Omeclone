@@ -13,7 +13,7 @@ module.exports = (io, app) => {
 
     onlineUsers.push(socket);
     socket.on('privateRoom', (user) => {
-      let unfilledRooms = rooms.map((room) => {
+      let unfilledRooms = rooms.filter((room) => {
         if (!room.isFilled) {
           console.log(room.roomID);
           return room;

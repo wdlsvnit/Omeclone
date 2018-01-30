@@ -20,7 +20,8 @@
     "express": "^4.16.2",
     "gulp": "^3.9.1",
     "hbs": "^4.0.1",
-    "socket.io": "^2.0.4"
+    "socket.io": "^2.0.4",
+    "uniqid": "^4.1.1"
   },
   "devDependencies": {
     "babel-preset-latest": "^6.24.1"
