@@ -9,9 +9,11 @@
 }
 .color-uno{
   background-color: #2196F3;
+  padding: 15px;
 }
 .color-dos{
   background-color: #FF9800;
+  padding: 15px;
 }
 .full{
   width: 100%;
