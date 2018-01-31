@@ -1,11 +1,17 @@
 .chat-body{
-  background-color:#B5CC18;
+  background-color: #212121;
 }
 .centered{
   text-align: center;
 }
 .white-text{
   color: white;
+}
+.color-uno{
+  background-color: #2196F3;
+}
+.color-dos{
+  background-color: #FF9800;
 }
 .full{
   width: 100%;
