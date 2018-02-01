@@ -9,6 +9,7 @@
 
   let message = document.querySelector('#message');
   let sendbtn = document.querySelector('#sendbtn');
+  let newbtn = document.querySelector('#newbtn');
   socket.emit('privateRoom', { "room": "private room" });
 
   sendbtn.addEventListener('click', () => {
@@ -24,6 +25,18 @@
 
   socket.on('newMessage', (data) => {
     console.log(data);
+  });
+
+  socket.on('alone', (data) => {
+    console.log(`alone: ${data.message}`);
+    endbtn.classList.add('hide');
+    newbtn.classList.remove('hide');
+  });
+
+  newbtn.addEventListener('click', () => {
+    socket.emit('privateRoom', { "room": "private room" });
+    endbtn.classList.remove('hide');
+    newbtn.classList.add('hide');
   });
 
 })();
