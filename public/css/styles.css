@@ -21,6 +21,10 @@
   margin-right: 5px;
 }
 
+.hide{
+  display: none!important;
+}
+
 @media screen and (max-width: 600px){
   .txt{
     display: none;
