@@ -1,38 +1,80 @@
 <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
-     <link rel="stylesheet" type="text/css" href="/css/styles.css">
-     <title>Homepage:Omeclone</title>
- </head>
- <body style="background-color: lightgreen;">
-      <div class="ui grid" >
-          <div class="row">
-              <div class="one wide column"></div>
-              <div class="fourteen wide column">
-                  <div class="ui raised segment header" style="text-align:center;color: orange;font-size:3rem;background: transparent;">
-                      Omeclone.....
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="ui vertical grid">
-          <div class="sixteen column row"></div>
-          <div class="one column row">
-              <div class="center aligned sixteen wide column"><h2>Chat with Strangers and  Kill Your Lonliness now..........</div>   
-          </div>
-          <div class="one column row">  
-          </div>
-          <div class="one column row">   
-          </div> 
-          <div class="one column row">
-              <div class="center aligned sixteen wide column"><a href="/chat"><button class="ui purple basic button massive">Enter in ChatRoom</button></a></div>
-          </div>
-      </div>
- </body>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
- </html> 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <title>Homepage:Omeclone</title>
+</head>
+
+<body style="background:url(/images/bcgnd.jpg) center fixed no-repeat">
+    <div class="ui grid container">
+        <div class="row">
+            <div class="sixteen wide column"></div>
+        </div>
+        <div class="row">
+            <div class="three wide column left floated">
+                <img src="/images/logo.png" alt="" class="ui image">
+            </div>
+            <div class="three wide column right floated">
+                <a href="/chat">
+                <div class="ui animated button fade inverted olive">
+                    <div class="visible content">Chat to Stranger</div>
+                    <div class="hidden content">TAKE ME THERE</div>
+                </div>
+                </a>
+            </div>
+        </div>
+        <div class="row boyGirlBack">
+            <div class="two wide column"></div>
+            <div class="four wide column">
+                <div id="scene1">
+                    <img src="/images/boy.png" alt="" class="ui image" data-depth="1.0">
+                </div>
+                
+            </div>
+            <div class="four wide column pos">
+                <img src="https://media.giphy.com/media/3ornk2dcTMQ98ozk4g/giphy.gif" alt="" class="ui image" class="gifImage">
+            </div>
+            <div class="four wide column">
+                <div id="scene2">
+                    <img src="/images/girl.png" alt="" class="ui image" data-depth="1.0">
+                </div>
+                
+            </div>
+            <div class="two wide column"></div>
+        </div>
+        <div class="row">
+            <div class="one wide column"></div>
+            <div class="fourteen wide column text container">
+                <h1 class="sty">eum facilis molestiae accusantium beatae perferendis pariatur</h1>
+            </div>
+            <div class="one wide column"></div>
+        </div>
+        <div class="row">
+            <div class="three wide column"></div>
+            <div class="ten wide column">
+                <a href="/chat">
+                <div class="ui animated button fade inverted teal massive fluid">
+                    <div class="visible content">Chat to Stranger</div>
+                    <div class="hidden content">TAKE ME THERE</div>
+                </div>
+                </a>
+                
+            </div>
+            <div class="three wide column"></div>
+        </div>
+    </div>
+
+</body>
+<script src="js/parallax.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+
+</html>
