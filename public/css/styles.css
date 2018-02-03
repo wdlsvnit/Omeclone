@@ -4,6 +4,10 @@
 .centered{
   text-align: center;
 }
+.msg{
+  margin-bottom: 2.5px;
+  margin-top: 2.5px;
+}
 .white-text{
   color: white;
 }

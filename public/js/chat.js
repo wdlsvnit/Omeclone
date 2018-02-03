@@ -24,7 +24,14 @@
   });
 
   socket.on('newMessage', (data) => {
-    console.log(data);
+    let msgs = document.querySelector("#msgs");
+    let template;
+    if(socket.id == data.senderId){
+      template = `<div class="one column row msg"><div class="right floated purple seven wide column">${data.message}</div></div><br>`;
+    } else {
+      template = `<div class="one column row msg"><div class="left floated pink seven wide column">${data.message}</div></div><br>`;
+    }
+    msgs.insertAdjacentHTML('beforeend', template);
   });
 
   socket.on('alone', (data) => {
