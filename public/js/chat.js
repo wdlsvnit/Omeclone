@@ -31,12 +31,16 @@
     console.log(`alone: ${data.message}`);
     endbtn.classList.add('hide');
     newbtn.classList.remove('hide');
+    sendbtn.classList.add('hide');
+    message.classList.add('hide');
   });
 
   newbtn.addEventListener('click', () => {
     socket.emit('privateRoom', { "room": "private room" });
     endbtn.classList.remove('hide');
     newbtn.classList.add('hide');
+    sendbtn.classList.remove('hide');
+    message.classList.remove('hide');
   });
 
 })();
