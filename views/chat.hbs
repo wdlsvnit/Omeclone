@@ -22,20 +22,8 @@
         <div class="ui top attatched centered white-text">
           08:56 am
         </div>
-        <div class="ui vertical grid">
+        <div class="ui vertical grid" id="msgs">
           <div class="sixteen column row"></div>
-          <div class="one column row">
-            <div class="right floated purple seven wide column">Hi</div>
-          </div>
-          <div class="one column row">
-            <div class="left floated pink seven wide column">Hello!</div>
-          </div>
-          <div class="one column row">
-            <div class="right floated purple seven wide column">What's up?</div>
-          </div>
-          <div class="one column row">
-            <div class="left floated pink seven wide column">All good! You say?</div>
-          </div>
         </div>
       </div>
     </div>
@@ -47,6 +35,9 @@
         <i class="ban icon"></i>
         <span class="txt">End</span>
       </button>
+      <button class="ui teal icon button hide" id="newbtn">
+        <span>New</span>
+      </button>
       <input type="text" placeholder="Enter the message here." id="message">
       <button class="ui teal labeled icon button" id="sendbtn">
         <i class="fitted send icon"></i>
@@ -55,8 +46,6 @@
     </div>
   </div>
 </body>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script> -->
 <script src = "js/socket.io.js"></script>
 <script src = "js/chat.js"></script>
 </html>

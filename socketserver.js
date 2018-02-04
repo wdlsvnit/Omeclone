@@ -10,7 +10,6 @@ module.exports = (io, app) => {
   io.on('connection', (socket) => {
     // Make a user object and add it to the onlineUsers list and rooms too(maybe we can add to room once we have the partner.)
     socket.emit('ack', { id: socket.id, msg: "User connected" });
-
     onlineUsers.push(socket);
     socket.on('privateRoom', (user) => {
       let unfilledRooms = rooms.filter((room) => {
@@ -23,8 +22,11 @@ module.exports = (io, app) => {
       try {
         // join the existing room.
         socket.join(unfilledRooms[0].roomID);
+        let index = rooms.indexOf(unfilledRooms[0]);
+        rooms[index].isFilled = true;
         unfilledRooms[0].isFilled = true;
         socket.emit('private ack', { "message": "Added to privateRoom", "roomID": unfilledRooms[0].roomID });
+        socket.roomID = unfilledRooms[0].roomID;
         console.log(`Joined existing room: ${unfilledRooms[0].roomID}`);
         console.log(`--------------------------------------------`);
       }
@@ -34,6 +36,7 @@ module.exports = (io, app) => {
         console.log(`Created new room: ${uID}`);
         rooms.push({ "roomID": uID, "isFilled": false });
         socket.join(uID);
+        socket.roomID = uID;
         console.log(`Socket joined in room with id: ${uID}`);
         socket.emit('private ack', { "message": "Added to privateRoom", "roomID": uID });
         // console.log(`Current status of rooms: ${rooms}`);
@@ -50,13 +53,25 @@ module.exports = (io, app) => {
     });
 
     socket.on('sendMessage', (data) => {
-      io.sockets.in(data.room).emit('newMessage', { "message": data.message });
+      io.sockets.in(data.room).emit('newMessage', { "message": data.message , "senderId": socket.id});
     });
-  });
 
-  // Disconnect the user
-  io.on('disconnect', (socket) => {
-    console.log(`${socket.id} disconnected.`);
-    // console.log(onlineUsers);
+    // Disconnect the user
+    socket.on('disconnect', () => {
+      let index = onlineUsers.indexOf(socket);
+      onlineUsers.splice(index,1);
+      index = rooms.findIndex(x => x.roomID == socket.roomID);
+      if(index >= 0){
+        if(rooms[index].isFilled == true){
+          io.sockets.in(socket.roomID).emit('alone', { "message": "stranger is disconnected", "roomID": socket.roomID });
+          rooms.splice(index,1);
+        }
+        else{
+          rooms.splice(index,1);
+        }
+      }
+      //console.log(rooms);
+      //console.log(onlineUsers.length);
+    });
   });
 }

@@ -9,6 +9,7 @@
 
   let message = document.querySelector('#message');
   let sendbtn = document.querySelector('#sendbtn');
+  let newbtn = document.querySelector('#newbtn');
   socket.emit('privateRoom', { "room": "private room" });
 
   sendbtn.addEventListener('click', () => {
@@ -23,7 +24,30 @@
   });
 
   socket.on('newMessage', (data) => {
-    console.log(data);
+    let msgs = document.querySelector("#msgs");
+    let template;
+    if(socket.id == data.senderId){
+      template = `<div class="one column row msg"><div class="right floated purple seven wide column">${data.message}</div></div><br>`;
+    } else {
+      template = `<div class="one column row msg"><div class="left floated pink seven wide column">${data.message}</div></div><br>`;
+    }
+    msgs.insertAdjacentHTML('beforeend', template);
+  });
+
+  socket.on('alone', (data) => {
+    console.log(`alone: ${data.message}`);
+    endbtn.classList.add('hide');
+    newbtn.classList.remove('hide');
+    sendbtn.classList.add('hide');
+    message.classList.add('hide');
+  });
+
+  newbtn.addEventListener('click', () => {
+    socket.emit('privateRoom', { "room": "private room" });
+    endbtn.classList.remove('hide');
+    newbtn.classList.add('hide');
+    sendbtn.classList.remove('hide');
+    message.classList.remove('hide');
   });
 
 })();
