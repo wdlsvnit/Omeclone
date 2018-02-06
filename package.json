@@ -20,6 +20,7 @@
   "dependencies": {
     "bower": "^1.8.2",
     "express": "^4.16.2",
+    "faker": "^4.1.0",
     "gulp": "^3.9.1",
     "hbs": "^4.0.1",
     "socket.io": "^2.0.4",
