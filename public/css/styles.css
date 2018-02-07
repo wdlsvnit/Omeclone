@@ -20,7 +20,16 @@
   margin: 0px;
   border:0px;
 }
-
+.semi{
+  width: 87.5%;
+  z-index: 3;
+}
+.ui.top{
+  position: fixed;
+}
+#msgs{
+  margin: 40px 0px;
+}
 #endbtn {
   margin-right: 5px;
 }
