@@ -34,7 +34,7 @@
       template = `<div class="one column row msg"><div class="left floated pink seven wide column">${data.message}</div></div><br>`;
     }
     msgs.insertAdjacentHTML('beforeend', template);
-    let height = document.querySelector("#msgs").offsetHeight;
+    let height = msgs.offsetHeight;
     window.scroll(0,height);
   });
 
@@ -52,6 +52,7 @@
     newbtn.classList.add('hide');
     sendbtn.classList.remove('hide');
     message.classList.remove('hide');
+    document.querySelector("#msgs").innerHTML = "";
   });
 
   endbtn.addEventListener('click', () => {
