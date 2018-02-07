@@ -29,6 +29,10 @@
   display: none!important;
 }
 
+.ui.mini.modal{
+  margin-top: -5%;
+}
+
 @media screen and (max-width: 600px){
   .txt{
     display: none;

@@ -9,7 +9,9 @@
 
   let message = document.querySelector('#message');
   let sendbtn = document.querySelector('#sendbtn');
+  let endbtn = document.querySelector('#endbtn');
   let newbtn = document.querySelector('#newbtn');
+  let cancel = document.querySelector('#cancel');
   socket.emit('privateRoom', { "room": "private room" });
 
   sendbtn.addEventListener('click', () => {
@@ -48,6 +50,16 @@
     newbtn.classList.add('hide');
     sendbtn.classList.remove('hide');
     message.classList.remove('hide');
+  });
+
+  endbtn.addEventListener('click', () => {
+    let confirm = document.querySelector('#confirm');
+    confirm.classList.add('visible');
+  });
+
+  cancel.addEventListener('click', () => {
+    let confirm = document.querySelector('#confirm');
+    confirm.classList.remove('visible');
   });
 
 })();
