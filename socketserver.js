@@ -55,8 +55,8 @@ module.exports = (io, app) => {
     });
 
     socket.on('sendMessage', (data) => {
-    let timeStamp = moment().format('LT');
-    io.sockets.in(data.room).emit('newMessage', { "message": data.message , "senderId": socket.id, "timeStamp": timeStamp});
+      let timeStamp = moment().format('LT');
+      io.sockets.in(data.room).emit('newMessage', { "message": data , "senderId": socket.id, "timeStamp": timeStamp});
     });
 
     // Disconnect the user

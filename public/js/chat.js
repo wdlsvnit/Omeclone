@@ -37,9 +37,10 @@
   sendbtn.addEventListener('click', () => {
     if ((message.value.trim()).length !== 0) {
       console.log(`Sending message to ${room_id_of_other_user}`);
+      let encryptedMessage = encode(message.value);
       socket.emit('sendMessage', {
         "room": room_id_of_other_user,
-        "message": message.value
+        "encryptedMessage": encryptedMessage
       });
       message.value = ' ';
     }
@@ -51,13 +52,14 @@
   });
 
   socket.on('newMessage', (data) => {
+    let decryptedMessage = decode(data.message.encryptedMessage);
     let msgs = document.querySelector("#msgs");
     let template;
-    data.message = autolinker.link(data.message);
+    decryptedMessage = autolinker.link(decryptedMessage);
     if (socket.id == data.senderId) {
-      template = `<div class="one column row msg"><div class="right floated purple seven wide column msg_div">${data.message}<span class="times_css">${data.timeStamp}</span></div></div><br>`;
+      template = `<div class="one column row msg"><div class="right floated purple seven wide column msg_div">${decryptedMessage}<span class="times_css">${data.timeStamp}</span></div></div><br>`;
     } else {
-      template = `<div class="one column row msg"><div class="left floated pink seven wide column msg_div">${data.message}<span class="times_css">${data.timeStamp}</span></div></div><br>`;
+      template = `<div class="one column row msg"><div class="left floated pink seven wide column msg_div">${decryptedMessage}<span class="times_css">${data.timeStamp}</span></div></div><br>`;
     }
     msgs.insertAdjacentHTML('beforeend', template);
     let height = msgs.offsetHeight;
