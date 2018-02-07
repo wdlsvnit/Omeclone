@@ -45,6 +45,25 @@
       </button>
     </div>
   </div>
+  <div class="ui mini modal transition tada" id="confirm">
+    <div class="header">
+      End This Chat
+    </div>
+    <div class="content">
+      <p>Are you sure you want to end this chat?</p>
+    </div>
+    <div class="actions">
+      <div class="ui teal button" id="cancel">
+        No
+      </div>
+      <a href="/">
+        <div class="ui red right labeled icon button">
+          Yes
+          <i class="sign out icon"></i>
+        </div>
+      </a>
+    </div>
+  </div>
 </body>
 <script src = "/bower_components/socket.io-client/dist/socket.io.js"></script>
 <script src = "js/chat.js"></script>
