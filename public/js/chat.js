@@ -14,7 +14,10 @@
 
   sendbtn.addEventListener('click', () => {
     console.log(`Sending message to ${room_id_of_other_user}`);
-    socket.emit('sendMessage', { "room": room_id_of_other_user, "message": message.value });
+    // encrypt the message here
+    // call the encrypt function
+    let encryptedObject = encrypt(message.value);
+    socket.emit('sendMessage', { "room": room_id_of_other_user, "encryptedObject": encryptedObject });
     message.value = ' ';
   });
 
@@ -24,12 +27,14 @@
   });
 
   socket.on('newMessage', (data) => {
+    let decryptedMessage = decrypt(data.message.encryptedObject);
+    console.log(decryptedMessage);
     let msgs = document.querySelector("#msgs");
     let template;
     if(socket.id == data.senderId){
-      template = `<div class="one column row msg"><div class="right floated purple seven wide column">${data.message}</div></div><br>`;
+      template = `<div class="one column row msg"><div class="right floated purple seven wide column">${decryptedMessage.plaintext}</div></div><br>`;
     } else {
-      template = `<div class="one column row msg"><div class="left floated pink seven wide column">${data.message}</div></div><br>`;
+      template = `<div class="one column row msg"><div class="left floated pink seven wide column">${decryptedMessage.plaintext}</div></div><br>`;
     }
     msgs.insertAdjacentHTML('beforeend', template);
   });

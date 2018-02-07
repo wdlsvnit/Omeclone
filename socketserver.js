@@ -53,7 +53,7 @@ module.exports = (io, app) => {
     });
 
     socket.on('sendMessage', (data) => {
-      io.sockets.in(data.room).emit('newMessage', { "message": data.message , "senderId": socket.id});
+      io.sockets.in(data.room).emit('newMessage', { "message": data , "senderId": socket.id});
     });
 
     // Disconnect the user
