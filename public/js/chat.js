@@ -14,6 +14,13 @@
   let cancel = document.querySelector('#cancel');
   socket.emit('privateRoom', { "room": "private room" });
 
+
+  message.addEventListener("keyup", event => {
+    event.preventDefault();
+    if(event.key !== "Enter") return;
+    sendbtn.click();
+  });
+
   sendbtn.addEventListener('click', () => {
     console.log(`Sending message to ${room_id_of_other_user}`);
     socket.emit('sendMessage', { "room": room_id_of_other_user, "message": message.value });
