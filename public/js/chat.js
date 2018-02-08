@@ -22,9 +22,11 @@
   });
 
   sendbtn.addEventListener('click', () => {
-    console.log(`Sending message to ${room_id_of_other_user}`);
-    socket.emit('sendMessage', { "room": room_id_of_other_user, "message": message.value });
-    message.value = ' ';
+    if((message.value.trim()).length !== 0) {
+      console.log(`Sending message to ${room_id_of_other_user}`);
+      socket.emit('sendMessage', { "room": room_id_of_other_user, "message": message.value });
+      message.value = ' ';
+    }
   });
 
   socket.on('private ack', (data) => {
