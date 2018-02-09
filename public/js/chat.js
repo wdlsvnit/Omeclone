@@ -75,3 +75,7 @@
   });
 
 })();
+
+  window.onload = () => {
+    message.focus();
+  }
