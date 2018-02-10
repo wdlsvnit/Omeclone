@@ -13,8 +13,7 @@
 ## 2. Opening an Issue
 **I'm submitting a ...**  (check one with "x")
   - [ ] bug report
-  - [x] feature request
-  - [ ] support request => Please do not submit support requests here, instead ask your query in our telegram group at [tg://join?invite=DHpmLBJ5imanI4n_LIqmgA](url)
+  - [ ] feature request
 
 **Current behavior:**
 <!-- Describe how the bug manifests. -->
@@ -67,7 +66,7 @@ Footer is used for citing issues that this commit closes (if any).
 
 **For Example:**
 ```
-fix: Summarize changes in around 50 characters or less write the issue no. in brackets (#12)
+fix: Summarize changes in around 50 characters or less. Write the issue no. in brackets (#12)
 
 More detailed explanatory text, if necessary. Wrap it to about 72
 characters or so. In some contexts, the first line is treated as the
