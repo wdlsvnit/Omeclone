@@ -1,5 +1,5 @@
 .chat-body {
-  background-color: #B5CC18;
+  background-color: #ffffff;
 }
 
 .toast-top-center{
@@ -16,7 +16,7 @@
 }
 
 .white-text {
-  color: white;
+  color: #ffffff;
 }
 
 .full {
@@ -86,7 +86,7 @@
   right: 5px;
   font-size: 0.7em;
   bottom: 5px;
-  color: black;
+  color: #ffffff;
 }
 
 .msg_div {
