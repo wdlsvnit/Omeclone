@@ -16,10 +16,13 @@
       <div class="one wide column"></div>
       <div class="fourteen wide column">
         <div class="ui raised segment header centered semi top">
-          <i class="user icon"></i>
-          {{ userName }}
+          <div>
+            <i class="user icon"></i>
+            {{ userName }}
+          </div>
         </div>
         <div class="ui vertical grid" id="msgs">
+          <div class="sixteen column row"></div>
           <div class="sixteen column row"></div>
         </div>
       </div>
@@ -35,7 +38,7 @@
       <button class="ui teal icon button hide" id="newbtn">
         <span>New</span>
       </button>
-      <input type="text" placeholder="Enter the message here." id="message">
+      <input type="text" placeholder="Enter the message here." id="message" tabindex="0">
       <button class="ui teal labeled icon button" id="sendbtn">
         <i class="fitted send icon"></i>
         <span class="txt">Send</span>
@@ -62,6 +65,7 @@
     </div>
   </div>
 </body>
-<script src = "/bower_components/socket.io-client/dist/socket.io.js"></script>
-<script src = "js/chat.js"></script>
+<script src="/bower_components/socket.io-client/dist/socket.io.js"></script>
+<script src="js/chat.js"></script>
+
 </html>

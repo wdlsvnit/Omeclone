@@ -12,19 +12,24 @@
   let endbtn = document.querySelector('#endbtn');
   let newbtn = document.querySelector('#newbtn');
   let cancel = document.querySelector('#cancel');
-  socket.emit('privateRoom', { "room": "private room" });
+  socket.emit('privateRoom', {
+    "room": "private room"
+  });
 
 
   message.addEventListener("keyup", event => {
     event.preventDefault();
-    if(event.key !== "Enter") return;
+    if (event.key !== "Enter") return;
     sendbtn.click();
   });
 
   sendbtn.addEventListener('click', () => {
-    if((message.value.trim()).length !== 0) {
+    if ((message.value.trim()).length !== 0) {
       console.log(`Sending message to ${room_id_of_other_user}`);
-      socket.emit('sendMessage', { "room": room_id_of_other_user, "message": message.value });
+      socket.emit('sendMessage', {
+        "room": room_id_of_other_user,
+        "message": message.value
+      });
       message.value = ' ';
     }
   });
@@ -37,14 +42,14 @@
   socket.on('newMessage', (data) => {
     let msgs = document.querySelector("#msgs");
     let template;
-    if(socket.id == data.senderId){
-      template = `<div class="one column row msg"><div class="right floated purple seven wide column">${data.message}</div></div><br>`;
+    if (socket.id == data.senderId) {
+      template = `<div class="one column row msg"><div class="right floated purple seven wide column msg_div">${data.message}<span class="times_css">${data.timeStamp}</span></div></div><br>`;
     } else {
-      template = `<div class="one column row msg"><div class="left floated pink seven wide column">${data.message}</div></div><br>`;
+      template = `<div class="one column row msg"><div class="left floated pink seven wide column msg_div">${data.message}<span class="times_css">${data.timeStamp}</span></div></div><br>`;
     }
     msgs.insertAdjacentHTML('beforeend', template);
     let height = msgs.offsetHeight;
-    window.scroll(0,height);
+    window.scroll(0, height);
   });
 
   socket.on('alone', (data) => {
@@ -56,7 +61,9 @@
   });
 
   newbtn.addEventListener('click', () => {
-    socket.emit('privateRoom', { "room": "private room" });
+    socket.emit('privateRoom', {
+      "room": "private room"
+    });
     endbtn.classList.remove('hide');
     newbtn.classList.add('hide');
     sendbtn.classList.remove('hide');
@@ -76,6 +83,6 @@
 
 })();
 
-  window.onload = () => {
-    message.focus();
-  }
+window.onload = () => {
+  message.focus();
+}
