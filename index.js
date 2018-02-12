@@ -7,6 +7,7 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const port = process.env.PORT || 3000;
 require('./socketserver.js')(io, app);
+require('./globals.js');
 
 
 
@@ -15,7 +16,14 @@ app.use(express.static(__dirname + '/public'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 app.get('/', (req, res) => {
-  res.render('index');
+  let noOfUsers = onlineUsers.length;
+  if (noOfUsers > 1) {
+    noOfUsers = noOfUsers + " users";
+  }
+  else {
+    noOfUsers = noOfUsers + " user";
+  }
+  res.render('index', { noOfUsers: noOfUsers });
 });
 
 app.get('/chat', (req, res) => {
