@@ -57,9 +57,9 @@
     let template;
     decryptedMessage = autolinker.link(decryptedMessage);
     if (socket.id == data.senderId) {
-      template = `<div class="one column row msg"><div class="right floated purple seven wide column msg_div">${decryptedMessage}<span class="times_css">${data.timeStamp}</span></div></div><br>`;
+      template = `<div class="one column row msg"><div class="right floated blue seven wide column msg_div">${decryptedMessage}<span class="times_css">${data.timeStamp}</span></div></div><br>`;
     } else {
-      template = `<div class="one column row msg"><div class="left floated pink seven wide column msg_div">${decryptedMessage}<span class="times_css">${data.timeStamp}</span></div></div><br>`;
+      template = `<div class="one column row msg"><div class="left floated blue seven wide column msg_div">${decryptedMessage}<span class="times_css">${data.timeStamp}</span></div></div><br>`;
     }
     msgs.insertAdjacentHTML('beforeend', template);
     let height = msgs.offsetHeight;
