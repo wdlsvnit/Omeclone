@@ -34,6 +34,7 @@ Each commit message consists of a header, a body and an optional footer. The hea
 <BLANK LINE>
 <footer>
 ```  
+**NOTE:** Good commit messages complete this sentence - "On merging, this will: _____ ."
 ### Types of commit messages:
 
 
@@ -66,7 +67,7 @@ Footer is used for citing issues that this commit closes (if any).
 
 **For Example:**
 ```
-fix: Summarize changes in around 50 characters or less. Write the issue no. in brackets (#12)
+fix: Summarize changes in around 50 characters or less. Write the issue no. in brackets (#123)
 
 More detailed explanatory text, if necessary. Wrap it to about 72
 characters or so. In some contexts, the first line is treated as the
@@ -82,11 +83,11 @@ change? Here's the place to explain them.
 
 Further paragraphs come after blank lines.
 
- - Bullet points are okay, too
+ - Bullet points are okay, too.
 
  - Typically a hyphen or asterisk is used for the bullet, preceded
    by a single space, with blank lines in between, but conventions
-   vary here
+   vary here.
 
 If you use an issue tracker, put references to them at the bottom,
 like this:
