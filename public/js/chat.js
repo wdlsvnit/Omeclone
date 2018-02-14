@@ -61,6 +61,7 @@
   });
 
   newbtn.addEventListener('click', () => {
+    socket.emit('delete', { "roomID": room_id_of_other_user });
     socket.emit('privateRoom', {
       "room": "private room"
     });

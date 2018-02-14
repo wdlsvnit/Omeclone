@@ -2,6 +2,7 @@
 
 const express = require('express');
 const faker = require('faker');
+const mongoose = require('mongoose');
 const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
@@ -14,6 +15,8 @@ require('./globals.js');
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+
+mongoose.connect('link goes here...');
 
 app.get('/', (req, res) => {
   let noOfUsers = onlineUsers.length;
