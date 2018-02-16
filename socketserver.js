@@ -3,6 +3,7 @@
 const utils = require('./utils.js');
 const uniqueID = require('uniqid');
 const moment = require('moment');
+const autolinker = require('autolinker');
 
 // This is our socket server. All the events socket events will go here.
 // Export the socket server
@@ -54,8 +55,8 @@ module.exports = (io, app) => {
     });
 
     socket.on('sendMessage', (data) => {
-      let timeStamp = moment().format('LT');
-      io.sockets.in(data.room).emit('newMessage', { "message": data.message , "senderId": socket.id, "timeStamp": timeStamp});
+    let timeStamp = moment().format('LT');
+    io.sockets.in(data.room).emit('newMessage', { "message": autolinker.link(data.message,{ stripPrefix:false }) , "senderId": socket.id, "timeStamp": timeStamp});
     });
 
     // Disconnect the user

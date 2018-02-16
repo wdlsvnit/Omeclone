@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/wdlsvnit/omeclone#readme",
   "dependencies": {
+    "autolinker": "^1.6.2",
     "bower": "^1.8.2",
     "express": "^4.16.2",
     "faker": "^4.1.0",
