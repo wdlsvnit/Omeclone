@@ -3,6 +3,8 @@
 const utils = require('./utils.js');
 const uniqueID = require('uniqid');
 const moment = require('moment');
+const Conversation = require('./models/conversation');
+const Message = require('./models/message');
 
 // This is our socket server. All the events socket events will go here.
 // Export the socket server
@@ -28,6 +30,14 @@ module.exports = (io, app) => {
         unfilledRooms[0].isFilled = true;
         socket.emit('private ack', { "message": "Added to privateRoom", "roomID": unfilledRooms[0].roomID });
         socket.roomID = unfilledRooms[0].roomID;
+        let conversation = new Conversation({
+          room: unfilledRooms[0].roomID
+        });
+        conversation.save((err, results) => {
+          if (err) {
+            console.log(err);
+          }
+        });
         console.log(`Joined existing room: ${unfilledRooms[0].roomID}`);
         console.log(`--------------------------------------------`);
       }
@@ -56,6 +66,17 @@ module.exports = (io, app) => {
     socket.on('sendMessage', (data) => {
       let timeStamp = moment().format('LT');
       io.sockets.in(data.room).emit('newMessage', { "message": data.message , "senderId": socket.id, "timeStamp": timeStamp});
+      let msg = new Message({
+        room: data.room,
+        body: data.message,
+        author: socket.id,
+        sentAt: timeStamp
+      });
+      msg.save((err, results) => {
+        if (err) {
+          console.log(err);
+        }
+      });
     });
 
     // Disconnect the user
@@ -63,17 +84,39 @@ module.exports = (io, app) => {
       let index = onlineUsers.indexOf(socket);
       onlineUsers.splice(index,1);
       index = rooms.findIndex(x => x.roomID == socket.roomID);
-      if(index >= 0){
-        if(rooms[index].isFilled == true){
+      if (index >= 0) {
+        if (rooms[index].isFilled == true) {
           io.sockets.in(socket.roomID).emit('alone', { "message": "stranger is disconnected", "roomID": socket.roomID });
           rooms.splice(index,1);
         }
-        else{
+        else {
           rooms.splice(index,1);
         }
       }
+      else {
+        Message.remove({ room: socket.roomID }, (err) => {
+          if (err)
+            console.log(err);
+        });
+        Conversation.remove({ room: socket.roomID }, (err) => {
+          if (err)
+            console.log(err);
+        });
+      }
       //console.log(rooms);
       //console.log(onlineUsers.length);
+    });
+
+    //delete stored logs
+    socket.on('delete', (data) => {
+      Message.remove({ room: data.roomID }, (err) => {
+        if (err)
+          console.log(err);
+      });
+      Conversation.remove({ room: data.roomID }, (err) => {
+        if (err)
+          console.log(err);
+      });
     });
   });
 }
