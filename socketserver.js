@@ -29,6 +29,7 @@ module.exports = (io, app) => {
         unfilledRooms[0].isFilled = true;
         socket.emit('private ack', { "message": "Added to privateRoom", "roomID": unfilledRooms[0].roomID });
         socket.roomID = unfilledRooms[0].roomID;
+        io.sockets.in(socket.roomID).emit('toast', { "message": "You are connected with a stranger!"})
         console.log(`Joined existing room: ${unfilledRooms[0].roomID}`);
         console.log(`--------------------------------------------`);
       }
@@ -66,7 +67,8 @@ module.exports = (io, app) => {
       index = rooms.findIndex(x => x.roomID == socket.roomID);
       if(index >= 0){
         if(rooms[index].isFilled == true){
-          io.sockets.in(socket.roomID).emit('alone', { "message": "stranger is disconnected", "roomID": socket.roomID });
+          let warning = { "title": "Stranger is disconnected!", "message": "Please click on 'New' button to connect to someone else." };
+          io.sockets.in(socket.roomID).emit('alone', { "warning": warning, "roomID": socket.roomID });
           rooms.splice(index,1);
         }
         else{

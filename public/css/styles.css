@@ -2,6 +2,10 @@
   background-color: #B5CC18;
 }
 
+.toast-top-center{
+  top: 60px;
+}
+
 .centered {
   text-align: center;
 }
