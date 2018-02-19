@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "socket.io-client": "^2.0.4",
-    "semantic": "^2.2.13"
+    "semantic": "^2.2.13",
+    "toastr": "^2.1.3"
   }
 }

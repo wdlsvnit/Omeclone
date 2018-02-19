@@ -17,6 +17,14 @@
     "room": "private room"
   });
 
+  socket.on('toast', (data) => {
+    toastr.options = {
+      "positionClass": "toast-top-center",
+      "hideDuration": 300,
+      "timeOut": 4000
+    };
+    toastr.success(data.message);
+  });
 
   message.addEventListener("keyup", event => {
     event.preventDefault();
@@ -54,12 +62,18 @@
   });
 
   socket.on('alone', (data) => {
-    console.log(`alone: ${data.message}`);
+    console.log(`stranger disconnected`);
     endbtn.classList.add('hide');
     newbtn.classList.remove('hide');
     sendbtn.classList.add('hide');
     message.classList.add('hide');
     homebtn.classList.remove('hide');
+    toastr.options = {
+      "positionClass": "toast-top-center",
+      "hideDuration": 300,
+      "timeOut": 4000
+    };
+    toastr.warning(data.warning.message, data.warning.title);
   });
 
   endbtn.addEventListener('click', () => {
