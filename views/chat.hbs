@@ -35,14 +35,21 @@
         <i class="ban icon"></i>
         <span class="txt">End</span>
       </button>
-      <button class="ui teal icon button hide" id="newbtn">
-        <span>New</span>
-      </button>
+      <a href="/chat">
+        <button class="ui teal icon button hide" id="newbtn">
+          <span>New</span>
+        </button>
+      </a>
       <input type="text" placeholder="Enter the message here." id="message" tabindex="0">
       <button class="ui teal labeled icon button" id="sendbtn">
         <i class="fitted send icon"></i>
         <span class="txt">Send</span>
       </button>
+      <a href="/">
+        <button class="ui red icon button right-float hide" id="homebtn">
+          <span>Home</span>
+        </button>
+      </a>
     </div>
   </div>
   <div class="ui mini modal transition tada" id="confirm">
@@ -56,12 +63,10 @@
       <div class="ui teal button" id="cancel">
         No
       </div>
-      <a href="/">
-        <div class="ui red right labeled icon button">
-          Yes
-          <i class="sign out icon"></i>
-        </div>
-      </a>
+      <div class="ui red right labeled icon button" id="close">
+        Yes
+        <i class="sign out icon"></i>
+      </div>
     </div>
   </div>
 </body>

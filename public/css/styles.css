@@ -43,6 +43,11 @@
   margin-right: 5px;
 }
 
+.right-float{
+  position: absolute;
+  right: 0px;
+}
+
 .hide {
   display: none !important;
 }

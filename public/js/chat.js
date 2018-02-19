@@ -11,6 +11,7 @@
   let sendbtn = document.querySelector('#sendbtn');
   let endbtn = document.querySelector('#endbtn');
   let newbtn = document.querySelector('#newbtn');
+  let close = document.querySelector('#close');
   let cancel = document.querySelector('#cancel');
   socket.emit('privateRoom', {
     "room": "private room"
@@ -58,17 +59,7 @@
     newbtn.classList.remove('hide');
     sendbtn.classList.add('hide');
     message.classList.add('hide');
-  });
-
-  newbtn.addEventListener('click', () => {
-    socket.emit('privateRoom', {
-      "room": "private room"
-    });
-    endbtn.classList.remove('hide');
-    newbtn.classList.add('hide');
-    sendbtn.classList.remove('hide');
-    message.classList.remove('hide');
-    document.querySelector("#msgs").innerHTML = "";
+    homebtn.classList.remove('hide');
   });
 
   endbtn.addEventListener('click', () => {
@@ -79,6 +70,17 @@
   cancel.addEventListener('click', () => {
     let confirm = document.querySelector('#confirm');
     confirm.classList.remove('visible');
+  });
+
+  close.addEventListener('click', () => {
+    let confirm = document.querySelector('#confirm');
+    message.classList.add('hide');
+    sendbtn.classList.add('hide');
+    endbtn.classList.add('hide');
+    homebtn.classList.remove('hide');
+    newbtn.classList.remove('hide');
+    confirm.classList.remove('visible');
+    socket.disconnect();
   });
 
 })();
