@@ -13,7 +13,6 @@
   let newbtn = document.querySelector('#newbtn');
   let close = document.querySelector('#close');
   let cancel = document.querySelector('#cancel');
-
   socket.emit('privateRoom', {
     "room": "private room"
   });
@@ -28,7 +27,6 @@
   });
 
   message.addEventListener("keyup", event => {
-    resetTimer();
     event.preventDefault();
     if (event.key !== "Enter") return;
     sendbtn.click();
@@ -99,21 +97,8 @@
     socket.disconnect();
   });
 
-    window.onload = () => {
-      message.focus();
-      resetTimer();
-    }
-    let t;
-    let kick = () => {
-      message.classList.add('hide');
-      sendbtn.classList.add('hide');
-      endbtn.classList.add('hide');
-      homebtn.classList.remove('hide');
-      newbtn.classList.remove('hide');
-      socket.disconnect();
-    }
-    let resetTimer = () => {
-        clearTimeout(t);
-        t = setTimeout(kick, 60000);  // time is in milliseconds
-    }
 })();
+
+window.onload = () => {
+  message.focus();
+}
