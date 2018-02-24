@@ -13,6 +13,8 @@
   let newbtn = document.querySelector('#newbtn');
   let close = document.querySelector('#close');
   let cancel = document.querySelector('#cancel');
+  let homebtn = document.querySelector('#homebtn');
+
   socket.emit('privateRoom', {
     "room": "private room"
   });
@@ -73,6 +75,7 @@
       "hideDuration": 300,
       "timeOut": 4000
     };
+    socket.disconnect();
     toastr.warning(data.warning.message, data.warning.title);
   });
 
