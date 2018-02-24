@@ -15,6 +15,7 @@
   let newbtn = document.querySelector('#newbtn');
   let close = document.querySelector('#close');
   let cancel = document.querySelector('#cancel');
+  let cancelFeed = document.querySelector('#cancelFeed');
   socket.emit('privateRoom', {
     "room": "private room"
   });
@@ -85,12 +86,20 @@
     let confirm = document.querySelector('#confirm');
     confirm.classList.add('visible');
   });
+  feedBtn.addEventListener('click', () => {
+    let feedback = document.querySelector('#feedback');
+    feedback.classList.add('visible');
+  });
 
   cancel.addEventListener('click', () => {
     let confirm = document.querySelector('#confirm');
     confirm.classList.remove('visible');
   });
-
+  cancelFeed.addEventListener('click', () => {
+    let confirmFeedback = document.querySelector('#feedback')
+    confirmFeedback.classList.remove('visible');
+  });
+  
   close.addEventListener('click', () => {
     let confirm = document.querySelector('#confirm');
     message.classList.add('hide');
