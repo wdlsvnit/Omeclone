@@ -74,8 +74,9 @@
 }
 
 .ui.mini.modal {
-  margin-top: -5%;
-  text-align: center;
+  position: fixed;
+  z-index: 9999999;
+  top:20%;
 }
 
 #feedBtn{
@@ -137,5 +138,11 @@
     position: relative;
     height: auto;
     align-self: auto
+  }
+  .ui.mini.modal {
+    position: fixed;
+    z-index: 9999999;
+    top:20%;
+    right:10px;
   }
 }
