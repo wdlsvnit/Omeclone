@@ -3,6 +3,8 @@
 (function () {
   let socket = io.connect(`${window.location.hostname}:${window.location.port}`);
   let room_id_of_other_user = ' ';
+  let autolinker = new Autolinker({ newWindow: false, stripPrefix: false });
+
   socket.on('ack', (d) => {
     console.log(`Received: ${d}`);
   });
@@ -51,6 +53,7 @@
   socket.on('newMessage', (data) => {
     let msgs = document.querySelector("#msgs");
     let template;
+    data.message = autolinker.link(data.message);
     if (socket.id == data.senderId) {
       template = `<div class="one column row msg"><div class="right floated purple seven wide column msg_div">${data.message}<span class="times_css">${data.timeStamp}</span></div></div><br>`;
     } else {
