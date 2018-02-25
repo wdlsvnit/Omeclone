@@ -84,6 +84,8 @@
 }
 
 .times_css {
+  /*  Time is hidden out temporarily*/
+  display: none;
   position: absolute;
   right: 5px;
   font-size: 0.7em;
