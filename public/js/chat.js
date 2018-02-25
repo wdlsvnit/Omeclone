@@ -7,6 +7,9 @@
 
   socket.on('ack', (d) => {
     console.log(`Received: ${d}`);
+    socket.emit('privateRoom', {
+      "room": "private room"
+    });
   });
 
   let message = document.querySelector('#message');
@@ -15,9 +18,6 @@
   let newbtn = document.querySelector('#newbtn');
   let close = document.querySelector('#close');
   let cancel = document.querySelector('#cancel');
-  socket.emit('privateRoom', {
-    "room": "private room"
-  });
 
   socket.on('toast', (data) => {
     toastr.options = {
