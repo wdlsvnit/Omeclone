@@ -71,7 +71,9 @@
 }
 
 .ui.mini.modal {
-  margin-top: -5%;
+  position: fixed;
+  z-index: 9999999;
+  top:20%;
 }
 
 #msgs .one .right,
@@ -130,5 +132,11 @@
     position: relative;
     height: auto;
     align-self: auto
+  }
+  .ui.mini.modal {
+    position: fixed;
+    z-index: 9999999;
+    top:20%;
+    right:10px;
   }
 }
