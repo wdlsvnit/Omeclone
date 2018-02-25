@@ -14,6 +14,9 @@
   margin-bottom: 2.5px;
   margin-top: 2.5px;
 }
+.feed{
+  font-size: 2em;
+}
 
 .white-text {
   color: #ffffff;
@@ -72,8 +75,12 @@
 
 .ui.mini.modal {
   margin-top: -5%;
+  text-align: center;
 }
 
+#feedbtn{
+  margin-left:10px;
+}
 #msgs .one .right,
 #msgs .one .left {
   position: relative;
@@ -130,5 +137,8 @@
     position: relative;
     height: auto;
     align-self: auto
+  }
+  #feedbtn{
+    margin-left:0;
   }
 }
