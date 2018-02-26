@@ -74,8 +74,9 @@
 }
 
 .ui.mini.modal {
-  margin-top: -5%;
-  text-align: center;
+  position: fixed;
+  z-index: 9999999;
+  top:20%;
 }
 
 #feedbtn{
@@ -89,6 +90,8 @@
 }
 
 .times_css {
+  /*  Time is hidden out temporarily*/
+  display: none;
   position: absolute;
   right: 5px;
   font-size: 0.7em;
@@ -138,7 +141,11 @@
     height: auto;
     align-self: auto
   }
-  #feedbtn{
-    margin-left:0;
+
+  .ui.mini.modal {
+    position: fixed;
+    z-index: 9999999;
+    top:20%;
+    right:10px;
   }
 }

@@ -29,6 +29,29 @@
       </div>
     </div>
     <div class="one wide column"></div>
+    <div class="row">
+      <div class="five wide column"></div>
+      <div class="six wide column">
+        <div class="ui mini modal transition tada" id="confirm">
+          <div class="header">
+            End This Chat
+          </div>
+          <div class="content">
+            <p>Are you sure you want to end this chat?</p>
+          </div>
+          <div class="actions">
+            <div class="ui teal button" id="cancel">
+              No
+            </div>
+            <div class="ui red right labeled icon button" id="close">
+              Yes
+              <i class="sign out icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="five wide column"></div>
+    </div>
   </div>
   <div class="ui raised segment sixteen column row full bottom">
     <div class="ui action icon input full">
@@ -94,7 +117,7 @@
 <script src="/bower_components/socket.io-client/dist/socket.io.js"></script>
 <script src="/bower_components/toastr/toastr.min.js"></script>
 <script src="js/chat.js"></script>
-<script src = "/bower_components/aes-js/index.js"></script>
-<script src = "js/end.js"></script>
+<script src="/bower_components/aes-js/index.js"></script>
+<script src="js/end.js"></script>
 
 </html>
