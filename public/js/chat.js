@@ -28,10 +28,49 @@
     toastr.success(data.message);
   });
 
-  message.addEventListener("keyup", event => {
-    event.preventDefault();
-    if (event.key !== "Enter") return;
-    sendbtn.click();
+  
+  message.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      socket.emit('typing', {
+        "room": room_id_of_other_user,
+        "typingStatus": false
+      });
+      sendbtn.click();
+    }
+    else {
+      socket.emit('typing', {
+        "room": room_id_of_other_user,
+        "typingStatus": true
+      });
+    }
+  });
+
+  let typeMessageShown = false;
+  let stop;
+  socket.on('addTyping', (data) => {
+    let msgs = document.querySelector("#msgs");
+    let typeMessage = document.querySelector('#typing');
+    if (socket.id != data.senderId) {
+      if (data.typingStatus === true) {
+        if (typeMessageShown === false) {
+          let template = `<div id="typing"><div class="toast-top-center" id="toast-container"><div class="toast msg_div grey" style="width:230px"><div class="toast-title white-text">Stranger typing . . .</div></div></div>`;
+          msgs.insertAdjacentHTML('beforeend', template);
+          typeMessageShown = true;
+        }
+        else {
+          window.clearTimeout(stop);
+        }
+        typeMessage = document.querySelector('#typing');
+        stop = window.setTimeout(function() {
+          typeMessage.remove();
+          typeMessageShown = false;
+        }, 2000);
+      }
+      else if (typeMessage) {
+        typeMessage.remove();
+        typeMessageShown = false;
+      }
+    }
   });
 
   sendbtn.addEventListener('click', () => {
@@ -42,8 +81,12 @@
         "room": room_id_of_other_user,
         "encryptedMessage": encryptedMessage
       });
-      message.value = ' ';
     }
+    socket.emit('typing', {
+      "room": room_id_of_other_user,
+      "typingStatus": false
+    });
+    message.value = '';
   });
 
   socket.on('private ack', (data) => {
