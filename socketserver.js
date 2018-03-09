@@ -59,6 +59,10 @@ module.exports = (io, app) => {
       io.sockets.in(data.room).emit('newMessage', { "message": data , "senderId": socket.id, "timeStamp": timeStamp});
     });
 
+    socket.on('typing', (data) => {
+        io.sockets.in(data.room).emit('addTyping', { "senderId": socket.id, "typingStatus": data.typingStatus });
+    });
+
     // Disconnect the user
     socket.on('disconnect', () => {
       let index = onlineUsers.indexOf(socket);
