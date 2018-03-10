@@ -28,8 +28,8 @@
     toastr.success(data.message);
   });
 
-  
-  message.addEventListener("keypress", (event) => {
+
+  message.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       socket.emit('typing', {
         "room": room_id_of_other_user,
