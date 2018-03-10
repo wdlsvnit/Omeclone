@@ -69,11 +69,46 @@
         <i class="fitted send icon"></i>
         <span class="txt">Send</span>
       </button>
+      <button class="ui teal labeled icon button" id="feedbtn">
+        <i class="user icon"></i>
+        <span class="txt">Feedback</span>
+      </button>
       <a href="/">
         <button class="ui red icon button right-float hide" id="homebtn">
           <span>Home</span>
         </button>
       </a>
+    </div>
+  </div>
+  <div class="ui mini modal transition tada" id="confirm">
+    <div class="header">
+      End This Chat
+    </div>
+    <div class="content">
+      <p>Are you sure you want to end this chat?</p>
+    </div>
+    <div class="actions">
+      <div class="ui teal button" id="cancel">
+        No
+      </div>
+      <div class="ui red right labeled icon button" id="close">
+        Yes
+        <i class="sign out icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="ui mini modal transition tada" id="feedback">
+    <div class="header sty">
+      Did Something Happened?
+    </div>
+    <div class="content sty">
+      <p> &#128562; Trouble Encountered &#128562;</p>
+      <p><a target="_blank" href="https://github.com/wdlsvnit/omeclone/issues">Click Here</a> &#10165; Submit your issue &#10165; We will take care</p>
+      </div>
+    <div class="actions">
+      <div class="ui teal button" id="cancelFeed">
+        Return To Chat
+      </div>
     </div>
   </div>
 </body>
