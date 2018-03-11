@@ -26,6 +26,9 @@
       "timeOut": 4000
     };
     toastr.success(data.message);
+    message.disabled = false;
+    message.placeholder = "Enter the message here...";
+    message.focus();
   });
 
 
@@ -146,7 +149,3 @@
   });
 
 })();
-
-window.onload = () => {
-  message.focus();
-}
