@@ -30,6 +30,7 @@
     message.disabled = false;
     message.placeholder = "Enter the message here...";
     message.focus();
+    resetTimer();
   });
 
   socket.on('wait', (data) => {
@@ -51,6 +52,7 @@
       sendbtn.click();
     }
     else {
+      resetTimer();
       socket.emit('typing', {
         "room": room_id_of_other_user,
         "typingStatus": true
@@ -157,5 +159,18 @@
     confirm.classList.remove('visible');
     socket.disconnect();
   });
+  let t;
+  let kick = () => {
+    message.classList.add('hide');
+    sendbtn.classList.add('hide');
+    endbtn.classList.add('hide');
+    homebtn.classList.remove('hide');
+    newbtn.classList.remove('hide');
+    socket.disconnect();
+  }
+  let resetTimer = () => {
+      clearTimeout(t);
+      t = setTimeout(kick, 60000);  // time is in milliseconds
+  }
 
 })();
