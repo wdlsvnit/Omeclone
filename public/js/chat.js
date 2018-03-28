@@ -20,6 +20,7 @@
   let cancel = document.querySelector('#cancel');
 
   socket.on('toast', (data) => {
+    toastr.remove();
     toastr.options = {
       "positionClass": "toast-top-center",
       "hideDuration": 300,
@@ -31,6 +32,15 @@
     message.focus();
   });
 
+  socket.on('wait', (data) => {
+    toastr.options = {
+      "positionClass": "toast-top-center",
+      "hideDuration": 300,
+      "timeOut": 0,
+      "extendedTimeOut": 0
+    };
+    toastr.info(data.message);
+  });
 
   message.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
