@@ -76,6 +76,11 @@
   text-shadow: 0 0 10px whitesmoke;
 }
 
+#msgs .msg a {
+  color:#ffffff;
+  text-decoration: underline;
+}
+
 .foot {
   margin-top: -10px;
 }
