@@ -19,6 +19,12 @@
   let close = document.querySelector('#close');
   let cancel = document.querySelector('#cancel');
 
+  window.onbeforeunload = function(e) {
+    var dialogText = '';
+    e.returnValue = dialogText;
+    return dialogText;
+  };
+
   socket.on('toast', (data) => {
     toastr.remove();
     toastr.options = {
