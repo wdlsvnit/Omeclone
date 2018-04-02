@@ -2,7 +2,7 @@
   background-color: #ffffff;
 }
 
-.toast-top-center{
+.toast-top-center {
   top: 60px;
 }
 
@@ -10,9 +10,24 @@
   text-align: center;
 }
 
+.terms {
+  color: rgb(58, 58, 58);
+  text-decoration: underline;
+}
+
+.terms:hover {
+  color: black;
+  text-decoration: none;
+}
+
 .msg {
   margin-bottom: 2.5px;
   margin-top: 2.5px;
+}
+
+.agree {
+  font-size: 40px;
+  font-weight: 300;
 }
 
 .white-text {
@@ -47,7 +62,7 @@
   margin-right: 5px;
 }
 
-.right-float{
+.right-float {
   position: absolute;
   right: 0px;
 }
@@ -61,19 +76,68 @@
   text-shadow: 0 0 10px whitesmoke;
 }
 
+.foot {
+  margin-top: -10px;
+}
+
 .add {
   margin: 40px;
+  padding: 0px;
+  font-size: 20px;
+  margin-bottom: 0;
+  color: rgb(58, 58, 58);
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.item {
+  flex: 1;
+}
+
+.end {
+  justify-content: flex-end;
+  display: flex;
+  text-align: right;
+  flex-basis: 0;
+}
+
+#footer {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  position: relative;
+  bottom: 0;
+}
+
+.add2 {
   padding: 10px;
+  font-size: 20px;
+  margin-bottom: 0;
+  color: rgb(58, 58, 58);
+}
+
+.content .header {
+  font-size: 1.5em;
+}
+
+#termsAndCo {
+  top: 10px;
 }
 
 .top_clear {
-  top: 30vh;
+  margin-top: 30px;
+}
+
+.content .icon {
+  text-align: right;
 }
 
 .ui.mini.modal {
   position: fixed;
   z-index: 9999999;
-  top:20%;
+  top: 20%;
 }
 
 #msgs .one .right,
@@ -98,6 +162,41 @@
   word-wrap: break-word;
   white-space: -moz-pre-wrap;
   white-space: pre-wrap;
+}
+
+#squareOne {
+  height: 28px;
+  width: 28px;
+}
+
+.description {
+  margin-top: 10px;
+}
+
+.item .header {
+  text-align: center;
+}
+
+.agree_text {
+  position: relative;
+  left: 10px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.hr {
+  margin-top: 15px;
+  border: .2px solid rgb(219, 219, 219);
+}
+
+.link {
+  color: rgb(58, 58, 58);
+  text-decoration: underline;
+}
+
+.bold {
+  font-weight: bolder;
 }
 
 @media screen and (max-width: 768px) {
@@ -138,7 +237,12 @@
   .ui.mini.modal {
     position: fixed;
     z-index: 9999999;
-    top:20%;
-    right:10px;
+    top: 20%;
+    right: 10px;
+  }
+  .agree_text {
+    position: relative;
+    left: 10px;
+    text-align: center;
   }
 }
