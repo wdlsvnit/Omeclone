@@ -6,7 +6,6 @@
   let autolinker = new Autolinker({ newWindow: false, stripPrefix: false });
 
   socket.on('ack', (d) => {
-    console.log(`Received: ${d}`);
     socket.emit('privateRoom', {
       "room": "private room"
     });
@@ -96,7 +95,6 @@
 
   sendbtn.addEventListener('click', () => {
     if ((message.value.trim()).length !== 0) {
-      console.log(`Sending message to ${room_id_of_other_user}`);
       let encryptedMessage = encode(message.value);
       socket.emit('sendMessage', {
         "room": room_id_of_other_user,
@@ -112,7 +110,6 @@
 
   socket.on('private ack', (data) => {
     room_id_of_other_user = data.roomID;
-    console.log(`Private ack: ${data.message} ${data.roomID}`);
   });
 
   socket.on('newMessage', (data) => {
@@ -131,7 +128,6 @@
   });
 
   socket.on('alone', (data) => {
-    console.log(`stranger disconnected`);
     endbtn.classList.add('hide');
     newbtn.classList.remove('hide');
     sendbtn.classList.add('hide');

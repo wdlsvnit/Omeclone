@@ -44,11 +44,9 @@ module.exports = (io, app) => {
             socket.on('privateRoom', (user) => {
               let unfilledRooms = rooms.filter((room) => {
                 if (!room.isFilled) {
-                  console.log(room.roomID);
                   return room;
                 }
               });
-              console.log(`Unfilled Rooms: ${JSON.stringify(unfilledRooms[0])}`);
               try {
                 // join the existing room.
                 socket.join(unfilledRooms[0].roomID);
@@ -57,24 +55,17 @@ module.exports = (io, app) => {
                 unfilledRooms[0].isFilled = true;
                 socket.emit('private ack', { "message": "Added to privateRoom", "roomID": unfilledRooms[0].roomID });
                 socket.roomID = unfilledRooms[0].roomID;
-                io.sockets.in(socket.roomID).emit('toast', { "message": "You are connected with a stranger!"})
-                console.log(`Joined existing room: ${unfilledRooms[0].roomID}`);
-                console.log(`--------------------------------------------`);
+                io.sockets.in(socket.roomID).emit('toast', { "message": "You are connected with a stranger!"});
               }
               catch(e) {
                 // dont have unfilled rooms. Thus creating a new user.
                 let uID = uniqueID();
-                console.log(`Created new room: ${uID}`);
                 rooms.push({ "roomID": uID, "isFilled": false });
                 socket.join(uID);
                 socket.roomID = uID;
-                console.log(`Socket joined in room with id: ${uID}`);
                 socket.emit('private ack', { "message": "Added to privateRoom", "roomID": uID });
-                // console.log(`Current status of rooms: ${rooms}`);
-                console.log(`--------------------------------------------`);
               }
             });
-
           }
           asyncCall();
 
@@ -102,8 +93,6 @@ module.exports = (io, app) => {
           rooms.splice(index,1);
         }
       }
-      //console.log(rooms);
-      //console.log(onlineUsers.length);
     });
   });
 }
