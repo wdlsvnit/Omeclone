@@ -1,3 +1,4 @@
+
 .chat-body {
   background-color: #ffffff;
 }
@@ -112,8 +113,9 @@
 #footer {
   margin-bottom: 0;
   padding-bottom: 0;
-  position: relative;
+  position: fixed;
   bottom: 0;
+  left:5px;
 }
 
 .add2 {
@@ -125,10 +127,6 @@
 
 .content .header {
   font-size: 1.5em;
-}
-
-#termsAndCo {
-  top: 10px;
 }
 
 .top_clear {
@@ -249,5 +247,8 @@
     position: relative;
     left: 10px;
     text-align: center;
+  }
+  #footer{
+    position: relative;
   }
 }
