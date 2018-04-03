@@ -2,13 +2,6 @@
 
 ###### Clone of omegle.com
 
-
-## Communication
-
-Our chat channel is on _Telegram_ here :
-
-> *[Omeclone](https://t.me/joinchat/DHpmLBJ5imanI4n_LIqmgA)*
-
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
