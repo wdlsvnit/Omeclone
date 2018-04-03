@@ -110,10 +110,10 @@
 }
 
 #footer {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  position: relative;
+  position: fixed;
   bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 .add2 {
@@ -125,10 +125,6 @@
 
 .content .header {
   font-size: 1.5em;
-}
-
-#termsAndCo {
-  top: 10px;
 }
 
 .top_clear {
