@@ -7,9 +7,6 @@ download() {
     cd ngrok-stable-linux-amd64
     ./ngrok authtoken 1oWDFci0TDVwcGZkeeLf4sJsmjn_4xgJcnqbj5BgVetRV19uz
     ./ngrok http 3000
-    echo "ngrok complete" 
 }
 
-# start web server
-#echo "Starting web server..."
 
