@@ -8,13 +8,6 @@ const io = require('socket.io')(server);
 const port = process.env.PORT || 3000;
 require('./socketserver.js')(io, app);
 require('./globals.js');
-wget -O ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-unzip ngrok.zip
-rm -rf ngrok.zip
-./ngrok authtoken 1tfKMp49YWCfLepG0snLDEYPkFB_679YEVW6kZAD5Ncyi5tus
-./ngrok http 49194
-
-
 
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
