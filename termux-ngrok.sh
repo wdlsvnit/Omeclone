@@ -1,5 +1,5 @@
 set -e
-./node index
+.node index
 wget -O ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 unzip ngrok.zip
 rm -rf ngrok.zip
