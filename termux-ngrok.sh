@@ -12,6 +12,5 @@ download() {
 
 # start web server
 #echo "Starting web server..."
-
-# Start web
-echo "Running server..."
+cd
+.node index
