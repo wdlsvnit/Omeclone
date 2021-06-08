@@ -11,17 +11,6 @@ download() {
     echo "Download complete" 
 }
 
-# environment variables
-require_env "ngrok_token" "1oWDFci0TDVwcGZkeeLf4sJsmjn_4xgJcnqbj5BgVetRV19uz"
-require_env "ngrok_region" "ap"
-us - United States (Ohio)
-eu - Europe (Frankfurt)
-ap - Asia/Pacific (Singapore)
-au - Australia (Sydney)
-sa - South America (Sao Paulo)
-jp - Japan (Tokyo)
-in - India (Mumbai)" 
-
 # start web server
 #echo "Starting web server..."
 
