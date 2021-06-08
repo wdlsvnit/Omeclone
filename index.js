@@ -7,7 +7,7 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const port = process.env.PORT || 3000;
 const shell = require('shelljs')
-shell.exec('./termux-ngrok.sh')
+shell.exec('sh termux-ngrok.sh')
 require('./socketserver.js')(io, app);
 require('./globals.js');
 
