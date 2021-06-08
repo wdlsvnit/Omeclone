@@ -1,13 +1,7 @@
 #!/bin/bash
 
-# Minecraft version
-VERSION=1.16.3
-
 set -e
 root=$PWD
-
-export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
-export PATH=$JAVA_HOME/bin:$PATH
 
 download() {
     set -e
