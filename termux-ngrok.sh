@@ -11,9 +11,6 @@ download() {
     echo "Download complete" 
 }
 
-# ngrok binary
-require_executable "ngrok"
-
 # environment variables
 require_env "ngrok_token" "1oWDFci0TDVwcGZkeeLf4sJsmjn_4xgJcnqbj5BgVetRV19uz"
 require_env "ngrok_region" "ap"
@@ -41,5 +38,3 @@ echo "Server running on: $server_ip" >
 # Start web
 #PATH=$PWD/jre/bin:$PATH
 echo "Running server..."
-.node index
-
