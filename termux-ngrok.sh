@@ -1,7 +1,3 @@
-#!/bin/bash
-
-set -e
-root=$PWD
 
 download() {
     set -e
