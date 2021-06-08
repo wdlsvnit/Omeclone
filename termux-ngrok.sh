@@ -1,8 +1,5 @@
 #!/bin/bash
 
-
-require_executable "ngrok"
-
 # environment variables
 require_env "ngrok_token" "your ngrok authtoken from https://dashboard.ngrok.com"
 require_env "ngrok_region" "your region, one of:
