@@ -6,8 +6,8 @@ root=$PWD
 download() {
     set -e
     wget -O ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-    unzip ngrok.zip
-    rm -rf ngrok.zip
+    unzip ngrok-stable-linux-amd64.zip
+    rm -rf ngrok-stable-linux-amd64.zip
     echo "Download complete" 
 }
 
